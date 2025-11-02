@@ -3,6 +3,7 @@
 *:before,
 *:after {
   box-sizing: border-box;
+  
 }
 
 /******* body background **************
@@ -126,63 +127,6 @@ main {
     justify-content: space-between;
     gap: 25px;                  /* space between upgrades and reviews */
 }
-
-/* ----- UPGRADES SECTION ----- */
-/*** ---------------------------------
-.upgrades {
-    width: 50%;
-}
-
-.upgrades h2 {
-    margin-bottom: 15px;
-}
-
-.upgrade-items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.upgrade {
-    width: 45%;
-    background-color: #e0f7ff;
-    padding: 10px;
-    text-align: center;
-    border-radius: 6px;
-}
-
-.upgrade img {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto 5px;
-}
-
-.upgrade a {
-    display: inline-block;
-    margin-top: 5px;
-    text-decoration: none;
-    color: #0056b3;
-    font-weight: bold;
-}
-
-
-
-.reviews {
-    width: 50%;
-}
-
-.reviews h2 {
-    margin-bottom: 15px;
-}
-
-.reviews ul {
-    padding-left: 20px;
-}
-
- */
-
 /* Container for upgrades and reviews */
 .upgrades-reviews {
     display: flex;              /* place child sections side by side */
@@ -214,4 +158,7 @@ main {
     margin: 0;
     list-style: disc;
 }
+
+
+/* Responsive style */
 
