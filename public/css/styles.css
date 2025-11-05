@@ -235,6 +235,15 @@ main {
 
 /* Mobile Base Styles */
 @media (max-width: 768px) {
+
+  /*--No need for background image for the small devise --*/
+  body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  padding: 10px 80px 10px 80px;
+}
+
   
   /* Main Layout */
   main {
