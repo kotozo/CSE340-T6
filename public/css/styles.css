@@ -238,6 +238,8 @@ main {
 
   /*--No need for background image for the small devise --*/
   body {
+  background-image: none;
+  background-color: white;
   margin: 0;
   padding: 0;
   line-height: 1.5;
