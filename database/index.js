@@ -1,4 +1,4 @@
-const {Pool} = require("pg")
+const { Pool } = require("pg")
 require("dotenv").config()
 /** **************
  * Connection Pool
@@ -6,7 +6,7 @@ require("dotenv").config()
  * But will cause problems in production environment
  * if -else will make determination which to use
  *************** */
-let Pool
+let pool
 if (process.env.NODE_ENV == "development") {
     pool = new Pool ({
         connectionString: process.env.DATABASE_URL,
@@ -14,7 +14,7 @@ if (process.env.NODE_ENV == "development") {
             rejectUnauthorized: false,
         },
     })
-    
+
     // Added for troubleshooting queries
     // during development
     module.exports = {
