@@ -7,7 +7,7 @@
  *************************/
 const express = require("express")
 expressLayouts = require("express-ejs-layouts")
-const utilities = require("./utilities/index")
+const utilities = require("./utilities/index.js")
 const env = require("dotenv").config()
 const app = express()
 const static = require("./routes/static")
@@ -26,7 +26,7 @@ app.set("layout", "./layouts/layout")
  *************************/
 app.use(static)
 //index route remove  
-app.get("/", baseController.buildHome, (req, res)  => {
+app.get("/", utilities.handleErrors(baseController.buildHome), (req, res)  => {
   res.render("index", { title: "Home" })
 })
 // Inventory routes
