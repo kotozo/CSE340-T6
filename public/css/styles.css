@@ -35,6 +35,16 @@ nav {
     color: white;
 }
 
+/* Add this below */
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #00b3ad;
+}
+
 nav ul {
     list-style: none;       /* remove bullet points */
     display: flex;          /* activate flexbox */
