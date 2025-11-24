@@ -61,6 +61,7 @@ app.use(async (err, req, res, next) => {
 const port = process.env.PORT
 const host = process.env.HOST
 
+
 /* ***********************
  * Log statement to confirm server operation
  *************************/
