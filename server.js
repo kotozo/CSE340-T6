@@ -25,10 +25,9 @@ app.set("layout", "./layouts/layout")
  * Routes
  *************************/
 app.use(static)
-//index route remove  
-app.get("/", utilities.handleErrors(baseController.buildHome), (req, res)  => {
-  res.render("index", { title: "Home" })
-})
+//index route  
+app.get("/", (baseController.buildHome))
+
 // Inventory routes
 app.use("/inv", inventoryRoute)
 

@@ -1,4 +1,4 @@
-const pool = require("../database/index.js")
+const pool = require("../database/")
 
 /* ************************
 * Get all Classification date
@@ -31,4 +31,4 @@ async function getInventoryByClassificationId(classification_id) {
 
 module.exports = { getClassifications, getInventoryByClassificationId}
 
-/*module.exports = {getClassifications};*/
+
