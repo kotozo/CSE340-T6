@@ -54,7 +54,7 @@ const utilities = require("../utilities/")
 /* ************************
  * Build inventory by classification view
  * ************************ */
-async function buildByClassificationId(req, res, next) {
+/*async function buildByClassificationId(req, res, next) {
   const classification_id = req.params.classificationId
   const data = await invModel.getInventoryByClassificationId(classification_id)
   const grid = await utilities.buildClassificationGrid(data)
@@ -67,6 +67,40 @@ async function buildByClassificationId(req, res, next) {
     grid,
   })
 }
+  */
+
+async function buildByClassificationId(req, res, next) {
+  const classification_id = req.params.classificationId
+
+  try {
+    const data = await invModel.getInventoryByClassificationId(classification_id)
+
+    // ❗ Fix: If no vehicles found, show message instead of crashing
+    if (!data || data.length === 0) {
+      let nav = await utilities.getNav()
+      return res.render("inventory/classification", {
+        title: "No Vehicles Found",
+        nav,
+        grid: '<p class="notice">No vehicles exist for this classification.</p>'
+      })
+    }
+
+    const grid = await utilities.buildClassificationGrid(data)
+    let nav = await utilities.getNav()
+
+    res.render("inventory/classification", {
+      title: data[0].classification_name + " vehicles",
+      nav,
+      grid
+    })
+
+  } catch (error) {
+    console.error("buildByClassificationId error: ", error)
+    next(error)
+  }
+}
+
+
 
 /* ************************
  * Build single vehicle detail page
