@@ -1,11 +1,24 @@
 
-<% if (title) {%>
-  <h1><%= title %></h1>
-<% } else {
-    res.redirect('/')
-} %>
 
-<%# messages() %>
+<%- include('../partials/header') %>
 
-<%- grid %>
+<h1><%= title %></h1>
 
+<div class="inventory-list">
+    <% if (inventoryItems.length > 0) { %>
+        <% inventoryItems.forEach(item => { %>
+            <div class="inventory-item">
+                <img src="/images/<%= item.inv_image %>" alt="<%= item.inv_make %> <%= item.inv_model %>">
+                <h2><%= item.inv_make %> <%= item.inv_model %></h2>
+                <p>Year: <%= item.inv_year %></p>
+                <p>Miles: <%= item.inv_miles %></p>
+                <p>Price: $<%= item.inv_price %></p>
+                <a href="/inventory/detail/<%= item.inv_id %>">View Details</a>
+            </div>
+        <% }) %>
+    <% } else { %>
+        <p>No vehicles found in this classification.</p>
+    <% } %>
+</div>
+
+<%- include('../partials/footer') %>
